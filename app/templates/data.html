@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS - Surveys</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <button id="create-data-btn">Create</button>
+    {% for i in data %}
+      <li>{{i.DateOrdered}}, {{i.DueDate}}, {{i.Number}}, {{i.Description}}, {{i.Amount}}, {{i.NTEPrice}}, {{i.Client}}, {{i.PhoneNumber}}, {{i.Adress}}, {{i.City}}, {{i.State}}, {{i.Country}},, {{i.Status}}, {{i.Comments}}</li>
+    {% endfor %} 
+
+  </body>
+</html>

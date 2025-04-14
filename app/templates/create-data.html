@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Post Survey</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <div class="form-div">
+    <form class="create-data" action="" method="POST">
+      {% csrf_token %}
+
+      {% render_field form.DateOrdered placeholder="Date Ordered" class+="boxes" id+="" %}
+      <p>dd/mm/yyyy</p>
+
+      {% render_field form.DueDate placeholder="Due Date" class+="boxes" id+=""%}
+      <p>dd/mm/yyyy</p>
+      
+      {% render_field form.Number placeholder="Number" class+="boxes" id+=""%}
+
+      {% render_field form.Description placeholder="Description" class+="boxes" id+="" %}
+
+      <div id="checkbox-container"></div>
+
+      {% render_field form.Ammount placeholder="Ammount" class+="boxes" id+="ammount-box" %}
+
+      {% render_field form.HourlyAmmount placeholder="Hourly Ammount" class+="boxes" id+="hourly-ammount-box" %}
+
+      {% render_field form.NTEPrice placeholder="NTE Price" class+="boxes" id+="nteprice-box" %}
+
+      {% render_field form.Client placeholder="Client" class+="boxes" id+="client-box" %}
+
+      {% render_field form.PhoneNumber placeholder="Phone Number" class+="boxes" id+="phonenumber-box" %}
+
+      {% render_field form.Address placeholder="Address" class+="boxes" id+="address-box" %}
+
+      {% render_field form.City placeholder="City" class+="boxes" id+="city-box" %}
+      
+      {% render_field form.State placeholder="State" class+="boxes" id+="state-box" %}
+
+      {% render_field form.County placeholder="County" class+="boxes" id+="county-box" %}
+
+      {% render_field form.FractionalLot placeholder="Fractional Lot" class+="boxes" id+="fractional-lot-box" %}
+
+      {% render_field form.Section placeholder="Section" class+="boxes" id+="section-box" %}
+
+      {% render_field form.Township placeholder="Township" class+="boxes" id+="township-box" %}
+
+      {% render_field form.Range placeholder="Range" class+="boxes" id+="range-box" %}
+
+      {% render_field form.Subdivision placeholder="Subdivision" class+="boxes" id+="subdivision-box" %}
+
+      {% render_field form.BlockSection placeholder="Blocksection" class+="boxes" id+="Blocksection-box" %}
+
+      {% render_field form.Lot placeholder="Lot" class+="boxes" id+="lot-box" %}
+
+      {% render_field form.Status placeholder="Status" class+="boxes" id+="status-box" %}
+
+      {% render_field form.Comments placeholder="Comments" class+="boxes" id+="comments-box" %}
+
+      {% if form.errors %}
+          <ul class="errors">
+              {% for field in form %}
+                  {% for error in field.errors %}
+                      <li>{{ field.label }}: {{ error }}</li>
+                  {% endfor %}
+              {% endfor %}
+          </ul>
+      {% endif %}
+      <button class="create-data-btn">Create</button>
+    </form>
+  </div>
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
