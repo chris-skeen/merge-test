@@ -1,15 +1,15 @@
 #map {
   border: 2px solid #333;
-  width: 80vw;
-  height: 80vh;
+  /* width: 80vw; */
+  height: 70vh; 
 }
 
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
+} */
 
 
 .custom-marker {
