@@ -1,0 +1,86 @@
+#create-data-btn {
+  background-color: lightgreen;
+}
+
+.create-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.hourly-header{
+  text-align: center;
+}
+
+#hourly-ammount-box {
+  display: none;
+}
+
+.parent-form-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-div{
+  background-color: #EEEEEE;
+  box-shadow: 5px 5px 5px 5px rgb(80, 79, 79);
+  width: 35vw;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+}
+
+.form-class{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.signup-boxes{
+  margin-top: 4%;
+  margin-bottom: 4%;
+  height:7%;
+  font-family: sans-serif;
+  text-align: center;
+  color: black;
+  font-size: 12pt;
+}
+
+.login-boxes{
+  margin-top: 15%;
+  margin-bottom: 2%;
+  height:7%;
+  font-family: sans-serif;
+  text-align: center;
+  color: black;
+  font-size: 12pt;
+}
+
+.signup-body{
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.signup-head{
+  display: flex;
+  justify-content: center;
+  color: rgb(82, 153, 82);
+  font-family: sans-serif;
+  margin-bottom: 20%;
+}
+
+.signup-btn{
+  margin-top: 20%;
+  height: 6.5%;
+  margin-bottom: 7%;
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+.login-body{
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}

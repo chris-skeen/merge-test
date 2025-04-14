@@ -1,0 +1,85 @@
+#map {
+  border: 2px solid #333;
+  width: 80vw;
+  height: 80vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.custom-marker {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #FF5733; /* Customize the color here */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+.info-box {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#surveys {
+  display: none;
+}
+
+.marker-box {
+  color: red;
+}
+
+#searchBox {
+  text-align: center;
+  border: 4px solid rgb(48, 51, 123);
+  margin-left: 30%;
+  width: 35%;
+  height: 5%;
+  margin-top: 0.2%;
+}
+
+#loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  display: none; /* Hide it initially */
+}
+
+.loading-content {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

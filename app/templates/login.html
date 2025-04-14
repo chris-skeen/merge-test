@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body class="login-body">
+
+    <div class="parent-form-div">
+        <div class="form-div">
+            <form method="POST" action="" class="form-class">
+        
+                <h1 class="signup-head">Employee Login</h1>
+        
+                {% csrf_token %}
+        
+                <input name="username" class="login-boxes" placeholder="Username"></input>
+
+                <input type="password" name="password" class="login-boxes" placeholder="Password"></input>
+    
+                <button class="signup-btn">Log In!</button>
+        
+                {% for message in messages %}
+                    <p id="messages">{{message}}</p>
+                {% endfor %}
+                <a href="signup">Dont Have An Account?</a>
+            </form>
+        </div>
+        </div>
+
+</body>
+</html>
