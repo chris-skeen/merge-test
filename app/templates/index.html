@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Skeen</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top">
+                    <img src="{% static 'assets/img/logo.png' %}" alt="Logo" style="width: auto; height: 8vh;">
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="mask" style="background-color: rgba(151, 197, 1, 0.5);">
+                        <!-- Content here -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container px-4 px-lg-5">
+                <h1 class="mb-4 text-center" style="font-size: 2.5rem; font-family: 'Merriweather Sans', sans-serif; font-weight: 800;">At Your Service</h1>
+                <hr class="divider bg-primary" />
+                <div class="row gx-4 gx-lg-5">
+                    <!-- Service items -->
+                </div>
+            </div>
+        </section>
+        <section id="gallery">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="card">
+                            <img src="{% static 'assets/img/image1.jpg' %}" alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary"><b>SURVEYING</b></h4>
+                                <p class="card-text">Boundary<br>Topographic Mapping<br>Construction Layout<br>Flood Insurance<br><br></p>
+                                <a href="" class="btn btn-outline-success btn-sm">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Other cards -->
+                </div>
+            </div>
+        </section>
+        <!-- Call to action-->
+        <section class="page-section bg-black text-white">
+            <div class="container px-4 px-lg-5 text-center">
+                <h1 class="mb-4" style="font-size: 2.5rem; font-family: 'Merriweather Sans', sans-serif; font-weight: 800;">Where We Work <i class="bi bi-geo-alt"></i></h1>
+                <hr class="divider bg-primary" />
+                <div class="row">
+                    <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+                        <img src="{% static 'assets/img/service.svg' %}" alt="Service Map">
+                    </div>
+                    <div class="col-md-6" style="display: flex; justify-content: right; align-items: left;">
+                        <form style="padding-top: 10%;">
+                            <h2 class="text-center mt-0 mb-4">Contact Us</h2>
+                            <div class="form-group mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group mb-3 d-flex">
+                                <div class="me-3" style="flex: 1;">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                </div>
+                                <div style="flex: 1;">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="phone" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="services" class="form-label">Select a Service</label>
+                                <select class="form-control" id="services" required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="surveying">Surveying</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="land_development">Land Development</option>
+                                    <option value="storm_water">Storm Water</option>
+                                    <option value="water_sewer">Water & Sewer</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn bg-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container text-center mb-4">
+                <a href="https://www.facebook.com" target="_blank" class="text-muted me-3">
+                    <i class="bi bi-facebook fs-4"></i>
+                </a>
+                <a href="https://www.twitter.com" target="_blank" class="text-muted me-3">
+                    <i class="bi bi-twitter fs-4"></i>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="text-muted me-3">
+                    <i class="bi bi-linkedin fs-4"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="text-muted">
+                    <i class="bi bi-instagram fs-4"></i>
+                </a>
+            </div>
+            <div class="container px-4 px-lg-5">
+                <div class="small text-center text-muted">Copyright &copy; 2025 - Skeen Engineering</div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    </body>
+</html>
