@@ -16,6 +16,9 @@ from django.contrib.auth.models import Group
 
 # Main Pages ----
 
+def home_view(request):
+   return render(request, 'index.html', {})
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['employee', 'admin'])
 def all_data_view(request):

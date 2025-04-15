@@ -2,11 +2,7 @@
 <!-- [ Header Topbar ] start -->
 <header class="pc-header">
   <div class="m-header">
-    {% if request.user.is_superuser %}
-      <a href="{% url 'admin:index' %}" class="b-brand">
-    {% else %}
       <a href="/" class="pc-link">
-    {% endif %}
       <!-- ========   change your logo hear   ============ -->
       <img src="{% static 'assets/images/logo.png' %}" alt="" class="logo logo-lg" style="width: 50%; height: auto;" />
     </a>
