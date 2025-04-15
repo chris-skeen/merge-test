@@ -9,6 +9,7 @@ urlpatterns = [
     path("all-data/", all_data_view, name="all-data"),
     path("map", map_view, name="map"),
     path("clients", client_view, name="clients"),
+    path("", home_view, name="home"),
 
     # Side Pages
     path("create-surveys", create_data_view, name="create-surveys"),
