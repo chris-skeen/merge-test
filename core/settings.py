@@ -46,7 +46,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_berry.apps.AdminBerryConfig',
+    # 'admin_berry.apps.AdminBerryConfig',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

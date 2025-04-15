@@ -16,9 +16,20 @@ from django.contrib.auth.models import Group
 
 # Main Pages ----
 
+@unauthenticated_user
 def home_view(request):
    context = {}
    return render(request, "index.html", context)
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['employee', 'admin'])
+def index(request):
+    data = surveys.objects.all()
+    recent_survey = len(data) - 1
+    print(data[recent_survey])
+    group = request.user.groups.all()[0].name
+    # Page from the theme 
+    return render(request, 'pages/index.html', {"data": data, "recent_survey": data[recent_survey], "group": group})
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['employee', 'admin'])
@@ -58,6 +69,8 @@ def client_view(request):
 
 # User Pages ---
 
+
+
 @unauthenticated_user
 def login_view(request):
    context = {}
@@ -69,10 +82,10 @@ def login_view(request):
       if user is not None:
          print('hi')
          login(request, user)
-         return redirect('map')
+         return redirect('dashboard')
       else:
          messages.info(request, 'Username OR Password Incorrect.')
-   return render(request, "login.html", context)
+   return render(request, "accounts/login.html", context)
 
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['employee', 'admin'])
@@ -93,7 +106,12 @@ def signup_view(request):
          return redirect('login')
 
    context = {'form':form}
-   return render(request, "signup.html", context)
+   return render(request, "accounts/register.html", context)
+
+# User Pages Extras ---
+def reset_password_view(request):
+   context = {}
+   return render(request, "accounts/reset-password.html", context)
 
 # Side Pages ---
 @login_required(login_url='login')

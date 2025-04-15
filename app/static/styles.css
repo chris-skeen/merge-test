@@ -48,9 +48,8 @@
 }
 
 .login-boxes{
-  margin-top: 15%;
-  margin-bottom: 2%;
-  height:7%;
+  width: 100%;
+  height: 7%;
   font-family: sans-serif;
   text-align: center;
   color: black;
@@ -83,4 +82,9 @@
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+}
+
+.skeen-logo{
+  width: 30%;
+  height: 30%;
 }

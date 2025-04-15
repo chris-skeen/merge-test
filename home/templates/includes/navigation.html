@@ -79,11 +79,11 @@
             <a class="list-group-item list-group-item-action">
               <div class="d-flex">
                 <div class="flex-shrink-0">
-                  <img src="{% static 'assets/images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar" />
+                  <img src="{% static 'assets/images/user/default.jpg' %}" alt="user-image" class="user-avtar" />
                 </div>
                 <div class="flex-grow-1 ms-1">
                   <span class="float-end text-muted">2 min ago</span>
-                  <h5>John Doe</h5>
+                  <h5>{{request.user}}</h5>
                   <p class="text-body fs-6">It is a long established fact that a reader will be distracted </p>
                   <div class="badge rounded-pill bg-light-danger">Unread</div>
                   <div class="badge rounded-pill bg-light-warning">New</div>
@@ -119,11 +119,11 @@
             <a class="list-group-item list-group-item-action">
               <div class="d-flex">
                 <div class="flex-shrink-0">
-                  <img src="{% static 'assets/images/user/avatar-1.jpg' %}" alt="user-image" class="user-avtar" />
+                  <img src="{% static 'assets/images/user/default.jpg' %}" alt="user-image" class="user-avtar" />
                 </div>
                 <div class="flex-grow-1 ms-1">
                   <span class="float-end text-muted">8 min ago</span>
-                  <h5>John Doe</h5>
+                  <h5>{{request.user}}</h5>
                   <p class="text-body fs-6">Uploaded two file on &nbsp;<strong>21 Jan 2020</strong></p>
                   <div class="notification-file d-flex p-3 bg-light-secondary rounded">
                     <i class="ti ti-arrow-bar-to-down"></i>
@@ -135,7 +135,7 @@
             <a class="list-group-item list-group-item-action">
               <div class="d-flex">
                 <div class="flex-shrink-0">
-                  <img src="{% static 'assets/images/user/avatar-3.jpg' %}" alt="user-image" class="user-avtar" />
+                  <img src="{% static 'assets/images/user/default.jpg' %}" alt="user-image" class="user-avtar" />
                 </div>
                 <div class="flex-grow-1 ms-1">
                   <span class="float-end text-muted">10 min ago</span>
@@ -157,27 +157,22 @@
     <li class="dropdown pc-h-item header-user-profile">
       <a class="pc-head-link head-link-primary dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
         role="button" aria-haspopup="false" aria-expanded="false">
-        <img src="{% static 'assets/images/user/avatar-2.jpg' %}" alt="user-image" class="user-avtar" />
+        <img src="{% static 'assets/images/user/default.jpg' %}" alt="user-image" class="user-avtar" />
         <span>
           <i class="ti ti-settings"></i>
         </span>
       </a>
       <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
         <div class="dropdown-header">
-          <h4>Good Morning, <span class="small text-muted"> John Doe</span></h4>
-          <p class="text-muted">Project Admin</p>
+          <h4>Good Morning, <span class="small text-muted">{{request.user}}</span></h4>
+          <p class="text-muted">{{group}}</p>
           <form class="header-search">
             <i class="ti ti-search icon-search"></i>
             <input type="search" class="form-control" placeholder="Search profile options" />
           </form>
           <hr />
           <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 280px)">
-            <div class="upgradeplan-block bg-light-warning rounded">
-              <h4>Berry Bootstrap 5</h4>
-              <p class="text-muted">Open-Source Theme</p>
-              <a href="https://docs.appseed.us/boilerplate-code/django-templates/berry-dashboard/" target="_blank"
-                class="btn btn-warning">Documentation</a>
-            </div>
+            
             <hr />
             <div class="settings-block bg-light-primary rounded">
               <div class="form-check form-switch">

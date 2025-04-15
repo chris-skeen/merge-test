@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "app",
     "home",
-    'admin_berry.apps.AdminBerryConfig',
+    # 'admin_berry.apps.AdminBerryConfig',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

@@ -5,6 +5,7 @@ from core import urls
 
 urlpatterns = [
     # Main Pages
+    path('dashboard', index, name='dashboard'),
     path("admin/", admin.site.urls, name="admin"),
     path("all-data/", all_data_view, name="all-data"),
     path("map", map_view, name="map"),
@@ -18,5 +19,5 @@ urlpatterns = [
     path("login", login_view, name="login"),
     path("logout", logout_view, name="logout"),
     path("signup", signup_view, name="signup"),
-    path("home", home_view, name="home"),
+    path("reset-password", reset_password_view, name="password_reset"),
 ] + urls.urlpatterns
