@@ -1,0 +1,131 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %} Surveys {% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <!-- [ Main Content ] start -->
+  <div class="pc-container">
+    <div class="pc-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="row align-items-center">
+            <div class="col-md-12">
+              <div class="page-header-title">
+                <h5 class="m-b-10">Surveys</h5>
+              </div>
+              <div class="page-header-create">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../navigation/index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item" aria-current="page">Surveys</li>
+              </ul>
+                <a href="{% url 'create-survey' %}" id="create-survey-btn" class="btn btn-primary btn-create-survey">
+                <i class="ti ti-plus"></i> Create
+                </a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- [ breadcrumb ] end -->
+
+
+      <!-- [ Main Content ] start -->
+      <div class="row">
+        <!-- [ sample-page ] start -->
+        {% for i in page_obj %}
+        {% comment %} {% for i in data_surveys %} {% endcomment %}
+        <div class="col-sm-12">
+            <div class="card">
+            <div class="card-header">
+              <h5 style="color: rgb(77, 175, 77); font-size: 15pt;">{{i.Number}}</h5>
+              <div class="card-header-right">
+              {% if user.is_superuser %}
+              <div class="btn-group card-option">
+                {% comment %} UPDATE {% endcomment %}
+                <a href="{% url 'update_survey' i.id %}" id="survey-btn-update" class="btn btn-light d-flex align-items-center">
+                  <i class="ti ti-arrow-up mr-2 icon-responsive"></i> Update
+                </a>
+                {% comment %} DELETE {% endcomment %}
+                <a href="{% url 'delete_survey' i.id %}" id="survey-btn-remove" class="btn btn-light d-flex align-items-center" onclick="return confirmDelete()">
+                  <i class="ti ti-trash mr-2 icon-responsive"></i> Remove
+                </a>
+                {% comment %} NEARBY {% endcomment %}
+                <a href="{% url 'nearby_survey' i.id %}" id="survey-btn-nearby" class="btn btn-light d-flex align-items-center">
+                  <i class="ti ti-map icon-responsive"></i> Nearby
+                </a>
+              </div>
+              {% endif %}
+            </div>
+            <hr class="hr-surveys"/>
+            <div class="date-status-surveys">
+            <p class="date-ordered-surveys">{{i.DateOrdered}}</divp>
+              {% if i.Status %}
+                <p class="status-surveys">{{ i.Status }}</p>
+              {% endif %}
+            </div>
+            {% if i.DueDate %}
+            <p class="due-date-surveys"> Due: {{ i.DueDate }} </p>
+            {% endif %}
+            <p>
+              {% if i.Client %}
+              Client: {{ i.Client }}
+              {% endif %}
+              {% if i.PhoneNumber %}
+                - {{ i.PhoneNumber }}
+              {% endif %}
+              <br />
+            </p>
+            <p>
+              Address: {{ i.Address }}
+              {% if i.City %}
+                - {{ i.City }}
+              {% endif %}
+              {% if i.State %}
+                - {{ i.State }}
+              {% endif %}
+              {% if i.Country %}
+                - {{ i.Country }}
+              {% endif %}
+            </p>
+            {% if user.is_superuser %}
+            <p class="ammount-surveys">Ammount: {{i.Ammount}}</p>
+            {% endif %}
+            {% if user.is_superuser %}
+            {% if i.NTEPrice %}
+            <p class="ammount-surveys"> NTE Price: {{i.NTEPrice}} </p>
+            {% endif %}
+            {% endif %}
+            {% if i.Description %}
+            <p>Description:{{i.Description}}</p>
+            {% endif %}
+            {% if i.Comments %}
+            Comments: {{i.Comments}}
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        <div class="pagination">
+          {% if page_obj.has_previous %}
+            <a class="btn3 btn-previous" href="?page={{ page_obj.previous_page_number }}">
+              <i class="ti ti-arrow-left"></i> Previous
+            </a>
+          {% endif %}
+          <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+          {% if page_obj.has_next %}
+            <a class="btn3 btn-next" href="?page={{ page_obj.next_page_number }}">
+              Next <i class="ti ti-arrow-right"></i>
+            </a>
+          {% endif %}
+        </div>
+        <!-- [ sample-page ] end -->
+      </div>
+      <!-- [ Main Content ] end -->
+    </div>
+  </div>
+  <!-- [ Main Content ] end -->
+  <script src="{% static 'confirm.js' %}"></script>
+{% endblock content %}

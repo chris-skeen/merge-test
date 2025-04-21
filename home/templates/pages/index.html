@@ -11,7 +11,8 @@
       <!-- [ sample-page ] start -->
       <div class="col-xl-4 col-md-6">
         <div
-          class="card bg-secondary-dark dashnum-card text-white overflow-hidden"
+          class="card dashnum-card text-white overflow-hidden"
+          style="background-color: rgb(82, 153, 82);"
         >
           <span class="round small"></span>
           <span class="round big"></span>
@@ -24,12 +25,13 @@
               </div>
               <div class="col-auto">
                 <div class="btn-group">
-                  <a
+                    <a
                     type="button"
-                    class="avtar bg-secondary dropdown-toggle arrow-none"
+                    class="avtar"
+                    style="background-color: #48b73a;"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                  >
+                    >
                     <i class="ti ti-dots"></i>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -118,7 +120,7 @@
         >
           <span class="round bg-primary small"></span>
           <span class="round bg-primary big"></span>
-          <div class="card-body p-3">
+          <div class="card-body p-3" style="background-color: rgb(82, 153, 82);">
             <div class="d-flex align-items-center">
               <div class="avtar avtar-lg">
                 <i class="text-white ti ti-credit-card"></i>
@@ -135,16 +137,16 @@
         <div class="card dashnum-card dashnum-card-small overflow-hidden">
           <span class="round bg-warning small"></span>
           <span class="round bg-warning big"></span>
-          <div class="card-body p-3">
+            <div class="card-body p-3" style="background-color: rgb(22, 118, 216);">
             <div class="d-flex align-items-center">
-              <div class="avtar avtar-lg bg-light-warning">
-                <i class="text-warning ti ti-credit-card"></i>
+                <div class="avtar avtar-lg" style="background-color: rgb(19, 100, 184);">
+                <i class="text-white ti ti-credit-card" style="color: rgb(19, 100, 184);"></i>
               </div>
               <div class="ms-2">
-                <h4 class="mb-1">
+                <h4 class="mb-1" style="color: white;">
                   {{recent_survey.Client}} <i class="ti ti-arrow-up-right-circle opacity-50"></i>
                 </h4>
-                <p class="mb-0 opacity-50 text-sm">{{recent_survey.PhoneNumber}}</p>
+                <p class="mb-0 opacity-50" style="color: white;">{{recent_survey.PhoneNumber}}</p>
               </div>
             </div>
           </div>
@@ -172,7 +174,19 @@
           <div class="card-body">
             <div class="row mb-3 align-items-center">
               <div class="col">
-                <h4>Map Options</h4>
+                <h4 class="map-options-header">Map Options</h4>
+                <div>
+                  <p class="search-range-hd">Search Range<p id="current_mile_range">Current: 1</p></p>
+                </div>
+                <div>
+                  <button id="mile-btn-1" class="mile-range-btn">1</button> <button id="mile-btn-5" class="mile-range-btn">5</button> <button id="mile-btn-10" class="mile-range-btn">10</button> <button id="mile-btn-15" class="mile-range-btn">15</button> <button id="mile-btn-20" class="mile-range-btn">20</button>
+                </div>
+                <div class="additional-head-div">
+                  <p id="additional-head" class="search-range-hd">Additional</p>
+                </div>
+                <div>
+                  <button id="all-surveys-btn" class="all-surveys-btn">All Surveys</button> <button onclick="refreshPage()" class="refresh-map-btn">Refresh Map</button>
+                </div>
               </div>
             </div>
           </div>

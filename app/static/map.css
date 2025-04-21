@@ -79,7 +79,81 @@
   margin: 0 auto 10px;
 }
 
+.search-range-hd{
+  color:rgb(82, 153, 82);
+  font-size: 12pt;
+}
+
+.map-options-header{
+  font-size: 20pt;
+}
+
+.mile-range-btn{
+  background-color: rgb(82, 153, 82);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 2px solid rgb(171, 217, 171);
+  border-radius: 10px;
+}
+
+.mile-range-btn:hover{
+  cursor: pointer;
+  background-color: rgb(67, 135, 67);
+  border: 2px solid rgb(113, 157, 113);
+}
+
+.additional-head-div{
+  margin-top: 5%;
+}
+
+.all-surveys-btn{
+  color: white;
+  background-color: rgb(82, 153, 82);
+  border: 2px solid rgb(171, 217, 171);
+  width: 49%;
+  height: 15%;
+}
+
+.all-surveys-btn:hover{
+  color: white;
+  cursor: pointer;
+  background-color: rgb(67, 135, 67);
+  border: 2px solid rgb(113, 157, 113);
+}
+
+.refresh-map-btn{
+  color: white;
+  background-color: rgb(22, 118, 216);
+  border: 2px solid rgb(19, 100, 184);
+  width: 49%;
+  height: 15%;
+}
+
+.refresh-map-btn:hover{
+  color: white;
+  cursor: pointer;
+  background-color: rgb(19, 100, 184);
+  border: 2px solid rgb(14, 73, 136);
+}
+
+.logo{
+  padding-top: 10%;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 868px) {
+  #searchBox{
+    width: 50%;
+  }
 }

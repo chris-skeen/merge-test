@@ -19,13 +19,19 @@
         </li>
         
         <li class="pc-item">
-          {% if request.user.is_superuser %}
-          <a href="{% url 'admin:index' %}" class="pc-link">
-          {% else %}
-          <a href="/" class="pc-link">
-          {% endif %}
+          <a href="{% url 'dashboard' %}" class="pc-link">
             <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
             <span class="pc-mtext">Dashboard</span></a>
+        </li>
+        <li class="pc-item">
+          <a href="{% url 'all-data' %}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-settings"></i></span>
+            <span class="pc-mtext">Surveys</span></a>
+        </li>
+        <li class="pc-item">
+          <a href="{% url 'clients' %}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-user"></i></span>
+            <span class="pc-mtext">Clients</span></a>
         </li>
       </ul>
     </div>

@@ -1,10 +1,10 @@
 const MAPKEY = 'AIzaSyBzxbu5AjBh5LWI3Ns5L_vJvdKawxV-w98'
 const MAP_ID = '8d27f2d7194c07e7'
 let map, autocomplete;
+let mile_range = 1; // 1 mile
 document.addEventListener("DOMContentLoaded", () => {
   let s = document.createElement("script");
   document.head.appendChild(s);
-
 
   s.addEventListener("load", () => {
     // script has loaded.
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       mapTypeControl: true,
       fullscreenControl: true,
       fullscreenControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_TOP
+        position: google.maps.ControlPosition.LEFT_BOTTOM
       },
       streetViewControl: true,
       streetViewControlOptions: {
@@ -44,14 +44,85 @@ document.addEventListener("DOMContentLoaded", () => {
       rotateControl: true,
       
     });
+    const buttons = document.querySelectorAll(".mile-range-btn");
+    
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        let mile_range_from_btn = parseInt(btn.textContent);
+        mile_range = mile_range_from_btn
+        document.getElementById("current_mile_range").textContent = `Current: ${mile_range}`;
+      });
+    });
 
+    const allSurveysBtn = document.getElementById("all-surveys-btn");
+    allSurveysBtn.addEventListener("click", async () => {
+      try {
+        const response = await fetch("/static/data.json");
+        const data = await response.json();
+        document.getElementById('loading-overlay').style.display = 'flex';
+        // Loop over the data and process each item
+        for (let index = 0; index < data.length; index++) {
+          if (index === data.length - 1) {
+            document.getElementById('loading-overlay').style.display = 'none';
+          }
+          try {
+            // Await the coordinates from GetAllCoordinates function
+            let [lat, lng] = await GetAllCoordinates(data[index].Address, data[index].City, data[index].State);
+
+            const bluePinView = new google.maps.marker.PinView({
+              background: '#4295C3',
+              borderColor: '#000000',
+              scale: 1.0,
+              glyphColor: '#5A5A5A'
+            });
+
+            pinViews.push(bluePinView)
+    
+            // Proceed if lat and lng are valid
+            if (lat != null && lng != null) {
+              let marker = new google.maps.marker.AdvancedMarkerElement({
+                position: { lat: lat, lng: lng },
+                map: map,
+                title: data[index].Number,
+                content: pinViews[index].element
+              });
+    
+              markers.push(marker);
+    
+              // Add event listener to the marker
+              marker.addListener("gmp-click", () => {
+                const content = document.createElement("div");
+                content.className = 'marker-box';
+    
+                const nameElement = document.createElement("h2");
+                nameElement.className = 'marker-head';
+                nameElement.textContent = data[index].Number;
+                content.appendChild(nameElement);
+    
+                const placeIdElement = document.createElement("p");
+                placeIdElement.textContent = data[index].DateOrdered;
+                content.appendChild(placeIdElement);
+    
+                const placeAddressElement = document.createElement("p");
+                placeAddressElement.textContent = data[index].Address;
+                content.appendChild(placeAddressElement);
+    
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+              });
+            }
+          } catch (error) {
+            console.error(`Error processing coordinates for index ${index}:`, error);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching the data or processing the markers:', error);
+      }
+    });
         // Marker Customization ---
-
         const infowindow = new google.maps.InfoWindow();
-
         // Initialize the Google Maps Geocoder
         let geocoder;
-    
         // This function will be called to get the coordinates from the address
         async function geocodeAddress(Address, City, State) {
           var RealAddress;
@@ -125,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Function to check if two lat/long pairs are a mile apart
         function areOneMileApart(lat1, lon1, lat2, lon2) {
           const distance = haversine(lat1, lon1, lat2, lon2);
-          return distance <= 1;  // Return true if within 1 mile
+          return distance <= mile_range;  // Return true if within 1 mile
         }
 
     let markers = [];
@@ -138,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.placeholder = 'Search for a location';
 
     // Add the search box to the map controls (inside the map)
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchInput);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(searchInput);
 
     // Initialize the autocomplete feature
     autocomplete = new google.maps.places.Autocomplete(searchInput);
@@ -310,15 +381,13 @@ document.addEventListener("DOMContentLoaded", () => {
     //     console.error('Error fetching the data or processing the markers:', error);
     //   }
     // }
-    // initMap();
   });
-
-
-  // ---
 
 
 
   s.src = `https://maps.googleapis.com/maps/api/js?key=${MAPKEY}&v=beta&libraries=places,marker` 
 });
 
-
+function refreshPage() {
+  location.reload(); // This reloads the current page
+}

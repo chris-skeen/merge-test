@@ -1,17 +1,56 @@
-<!DOCTYPE html>
+{% extends 'layouts/base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS - Clients</title>
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
 
-  {% for i in data %}
-    {{i.Client}}, {{i.PhoneNumber}}
-  {% endfor %}
-  
-</body>
-</html>
+{% block title %} Clients {% endblock title %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <!-- [ Main Content ] start -->
+  <div class="pc-container">
+    <div class="pc-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="row align-items-center">
+            <div class="col-md-12">
+              <div class="page-header-title">
+                <h5 class="m-b-10">Clients</h5>
+              </div>
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../navigation/index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
+                <li class="breadcrumb-item" aria-current="page">Clients</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- [ breadcrumb ] end -->
+
+      <!-- [ Main Content ] start -->
+      <div class="row">
+        <!-- [ sample-page ] start -->
+        {% for i in data %}
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="client-div">
+              <p class="clients-text" style="color: rgb(146, 188, 146);">
+                {{i.Client}}
+              </p>
+              </div class="phone-div">
+              <div>
+                <p class="clients-text" style="color: rgb(22, 118, 216);">
+              {{i.PhoneNumber}}
+            </p>
+            </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- [ sample-page ] end -->
+      </div>
+      <!-- [ Main Content ] end -->
+    </div>
+  </div>
+  <!-- [ Main Content ] end -->
+{% endblock content %}

@@ -968,10 +968,10 @@ File: style.css
   color: #fff;
 }
 [data-pc-preset=preset-1] .text-secondary {
-  color: #673ab7 !important;
+  color: rgb(152, 199, 40) !important;
 }
 [data-pc-preset=preset-1] .bg-secondary {
-  background-color: #673ab7 !important;
+  background-color: rgb(82, 153, 82) !important;
 }
 [data-pc-preset=preset-1] .bg-light-secondary {
   background: #e1d8f1;
@@ -1001,19 +1001,19 @@ File: style.css
 }
 [data-pc-preset=preset-1] .btn-secondary {
   --bs-btn-color: #ffffff;
-  --bs-btn-bg: #673ab7;
-  --bs-btn-border-color: #673ab7;
+  --bs-btn-bg: rgb(152,199,40);
+  --bs-btn-border-color: rgb(152,199,40);
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #58319c;
-  --bs-btn-hover-border-color: #522e92;
+  --bs-btn-hover-bg: rgb(152,199,40);
+  --bs-btn-hover-border-color: rgb(152,199,40);
   --bs-btn-focus-shadow-rgb: 126, 88, 194;
   --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: #522e92;
-  --bs-btn-active-border-color: #4d2c89;
+  --bs-btn-active-bg: rgb(152,199,40);
+  --bs-btn-active-border-color: rgb(118, 156, 29);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #ffffff;
-  --bs-btn-disabled-bg: #673ab7;
-  --bs-btn-disabled-border-color: #673ab7;
+  --bs-btn-disabled-bg: rgb(152,199,40)
+  --bs-btn-disabled-border-color: rgb(152,199,40);
 }
 [data-pc-preset=preset-1] .btn-outline-secondary {
   --bs-btn-color: #673ab7;

@@ -2,7 +2,7 @@
 {% load widget_tweaks %}
 {% load static %}
 
-{% block title %} Create Survey {% endblock title %}
+{% block title %} Update Survey {% endblock title %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'create-data.css' %}" />
@@ -16,12 +16,12 @@
           <div class="row align-items-center">
             <div class="col-md-12">
               <div class="page-header-title">
-                <h5 class="m-b-10">Create Survey</h5>
+                <h5 class="m-b-10">Update Survey</h5>
               </div>
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../navigation/index.html">Home</a></li>
                 <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item" aria-current="page">Create Survey</li>
+                <li class="breadcrumb-item" aria-current="page">Update Survey</li>
               </ul>
             </div>
           </div>
@@ -36,58 +36,78 @@
         <div class="col-sm-12">
           <div class="card">
         <form class="create-data text-center" action="" method="POST">
+          
           {% csrf_token %}
         <div class="card-header">
+          <h1 class="headers-for-updaters">Number</h1>
           {% render_field form.Number placeholder="Number" class+="boxes mx-auto" id+="number-box"%}
         </div>
         <div class="card-body">
+
+          <h1 class="headers-for-updaters">Date Ordered</h1>
           {% render_field form.DateOrdered placeholder="Date Ordered" class+="boxes mx-auto" id+="" %}
           <p><b>Must Format:</b> &nbsp; dd/mm/yyyy</p>
-            
+
+          <h1 class="headers-for-updaters">Due Date</h1>
           {% render_field form.DueDate placeholder="Due Date" class+="boxes mx-auto" id+="" %}
           <p><b>Must Format:</b> &nbsp; dd/mm/yyyy</p>
 
+          <h1 class="headers-for-updaters">Client</h1>
           {% render_field form.Client placeholder="Client" class+="boxes mx-auto" id+="client-box" %}
 
+          <h1 class="headers-for-updaters">Phone Number</h1>
           {% render_field form.PhoneNumber placeholder="Phone Number" class+="boxes mx-auto" id+="phone-box" %}
 
+          <h1 class="headers-for-updaters">Status</h1>
           {% render_field form.Status placeholder="Status" class+="boxes mx-auto" id+="status-box" %}
 
+          <h1 class="headers-for-updaters">Address</h1>
           {% render_field form.Address placeholder="Address" class+="boxes mx-auto" id+="address-box" %}
 
+          <h1 class="headers-for-updaters">City</h1>
           {% render_field form.City placeholder="City" class+="boxes mx-auto" id+="city-box" %}
 
+          <h1 class="headers-for-updaters">State</h1>
           {% render_field form.State placeholder="State" class+="boxes mx-auto" id+="state-box" %}
 
+          <h1 class="headers-for-updaters">County</h1>
           {% render_field form.County placeholder="County" class+="boxes mx-auto" id+="county-box" %}
 
+          <h1 class="headers-for-updaters">Ammount</h1>
           {% render_field form.Ammount placeholder="Ammount" class+="boxes mx-auto" id+="ammount-box" %}
-          {% render_field form.HourlyAmmount placeholder="Hourly Ammount" class+="boxes mx-auto" id+="hourly-ammount-box" %}
 
-          <div id="checkbox-container"></div>
-
+          <h1 class="headers-for-updaters">NTE Price</h1>
           {% render_field form.NTEPrice placeholder="NTE Price" class+="boxes mx-auto" id+="nteprice-box" %}
 
+          <h1 class="headers-for-updaters">Description</h1>
           {% render_field form.Description placeholder="Description" class+="boxes mx-auto" id+="description-box" %}
 
+          <h1 class="headers-for-updaters">Comments</h1>
           {% render_field form.Comments placeholder="Comments" class+="boxes mx-auto" id+="comments-box" %}
 
+          <h1 class="headers-for-updaters">Fractional Lot</h1>
           {% render_field form.FractionalLot placeholder="Fractional Lot" class+="boxes mx-auto" id+="fractional-lot-box" %}
 
+          <h1 class="headers-for-updaters">Section</h1>
           {% render_field form.Section placeholder="Section" class+="boxes mx-auto" id+="section-box" %}
 
+          <h1 class="headers-for-updaters">Township</h1>
           {% render_field form.Township placeholder="Township" class+="boxes mx-auto" id+="township-box" %}
 
+          <h1 class="headers-for-updaters">Range</h1>
           {% render_field form.Range placeholder="Range" class+="boxes mx-auto" id+="range-box" %}
 
+          <h1 class="headers-for-updaters">Subdivision</h1>
           {% render_field form.Subdivision placeholder="Subdivision" class+="boxes mx-auto" id+="subdivision-box" %}
 
+          <h1 class="headers-for-updaters">Block Section</h1>
           {% render_field form.BlockSection placeholder="Block Section" class+="boxes mx-auto" id+="blocksection-box" %}
 
+          <h1 class="headers-for-updaters">Lot</h1>
           {% render_field form.Lot placeholder="Lot" class+="boxes mx-auto" id+="lot-box" %}
 
             <div class="text-center">
-            <button class="create-data-btn">Create</button>
+            <button class="create-data-btn">Change</button>
             </div>
         </div>
           </form>
