@@ -92,7 +92,7 @@
               {% endif %}
             </p>
             {% if user.is_superuser %}
-            <p class="ammount-surveys">Ammount: {{i.Ammount}}</p>
+            <p class="ammount-surveys">Amount: {{i.Ammount}}</p>
             {% endif %}
             {% if user.is_superuser %}
             {% if i.NTEPrice %}
@@ -104,6 +104,27 @@
             {% endif %}
             {% if i.Comments %}
             Comments: {{i.Comments}}
+            {% endif %}
+            {% if i.FractionalLot %}
+            NTE Price: {{i.NTEPrice}} 
+            {% endif %}
+            {% if i.Section %}
+            Section: {{i.Section}}
+            {% endif %}
+            {% if i.Township %}
+            Township: {{i.Township}}
+            {% endif %}
+            {% if i.Range %}
+            {{i.Range}}
+            {% endif %}
+            {% if i.Subdivision %}
+            Subdivision: {{i.Subdivision}}
+            {% endif %}
+            {% if i.BlockSection %}
+            Block Section: {{i.BlockSection}}
+            {% endif %}
+            {% if i.Lot %}
+            Lot: {{i.Lot}}
             {% endif %}
           </div>
         </div>

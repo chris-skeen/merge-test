@@ -5,6 +5,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
@@ -30,48 +31,82 @@
 
       <!-- [ Main Content ] start -->
       <div class="row">
+        <div id="survey-id" class="no-display">{{init_survey.id}}</div>
         <!-- [ sample-page ] start -->
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-header">
-              <h5 style="color: rgb(77, 175, 77); font-size: 15pt;" >{{init_survey.Number}}</h5>
+          <div class="card-header">
+            <h5 style="color: rgb(77, 175, 77); font-size: 15pt;">{{init_survey.Number}}</h5>
+            <div class="card-header-right">
+            {% if user.is_superuser %}
+            <div class="btn-group card-option">
+              {% comment %} UPDATE {% endcomment %}
+              <a href="{% url 'update_survey' init_survey.id %}" id="survey-btn-update" class="btn btn-light d-flex align-items-center">
+                <i class="ti ti-arrow-up mr-2 icon-responsive"></i> Update
+              </a>
+              {% comment %} DELETE {% endcomment %}
+              <a href="{% url 'delete_survey' init_survey.id %}" id="survey-btn-remove" class="btn btn-light d-flex align-items-center" onclick="return confirmDelete()">
+                <i class="ti ti-trash mr-2 icon-responsive"></i> Remove
+              </a>
             </div>
-            <div class="card-body">
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
-            </div>
+            {% endif %}
           </div>
+          <hr class="hr-surveys"/>
+          <div class="date-status-surveys">
+          <p class="date-ordered-surveys">{{init_survey.DateOrdered}}</divp>
+            {% if init_survey.Status %}
+              <p class="status-surveys">{{ init_survey.Status }}</p>
+            {% endif %}
+          </div>
+          {% if init_survey.DueDate %}
+          <p class="due-date-surveys"> Due: {{ init_survey.DueDate }} </p>
+          {% endif %}
+          <p>
+            {% if init_survey.Client %}
+            Client: {{ init_survey.Client }}
+            {% endif %}
+            {% if init_survey.PhoneNumber %}
+              - {{ init_survey.PhoneNumber }}
+            {% endif %}
+            <br />
+          </p>
+          <p>
+            Address: {{ init_survey.Address }}
+            {% if init_survey.City %}
+              - {{ init_survey.City }}
+            {% endif %}
+            {% if init_survey.State %}
+              - {{ init_survey.State }}
+            {% endif %}
+            {% if init_survey.Country %}
+              - {{ init_survey.Country }}
+            {% endif %}
+          </p>
+          {% if user.is_superuser %}
+          <p class="ammount-surveys">Amount: {{init_survey.Ammount}}</p>
+          {% endif %}
+          {% if user.is_superuser %}
+          {% if init_survey.NTEPrice %}
+          <p class="ammount-surveys"> NTE Price: {{init_survey.NTEPrice}} </p>
+          {% endif %}
+          {% endif %}
+          {% if init_survey.Description %}
+          <p>Description:{{init_survey.Description}}</p>
+          {% endif %}
+          {% if init_survey.Comments %}
+          Comments: {{init_survey.Comments}}
+          {% endif %}
         </div>
+      </div>
         <!-- [ sample-page ] end -->
       </div>
+      <div id="nearby-survey-cards"></div>
 
-      <div class="row">
-        <!-- [ sample-page ] start -->
-        <div class="col-sm-12">
-          <div class="card">
-            <div class="card-header">
-              <h5 style="color: rgb(77, 175, 77); font-size: 15pt;" >Closest Surveys __--__</h5>
-            </div>
-            <div class="card-body">
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- [ sample-page ] end -->
-      </div>
-
-      <!-- [ Main Content ] end -->
-    </div>
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <p>Searching nearby surveys...</p>
   </div>
+  <script src="{% static 'nearby.js' %}"></script>
   
   <!-- [ Main Content ] end -->
 {% endblock content %}

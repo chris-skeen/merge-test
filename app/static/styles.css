@@ -1,3 +1,7 @@
+body{
+  overflow-x: hidden;
+}
+
 #create-data-btn {
   background-color: lightgreen;
 }
@@ -221,6 +225,10 @@
   text-align: center;
 }
 
+.space-between-words{
+  margin-bottom: 2%;
+}
+
 @media (max-width: 650px) {
   .hr-surveys{
     display: none;
@@ -249,6 +257,42 @@
     font-size: 8pt;
     width: 100%;
   }
+}
+
+.no-display{
+  display: none;
+}
+
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.8);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.spinner {
+  border: 6px solid #ccc;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (max-width: 580px) {
